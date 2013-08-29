@@ -5,10 +5,6 @@ class Statusbar(object):
         super(Statusbar, self).__init__()
 
         self.main = main_window
-        self.init_ui()
-
-
-    def init_ui(self):
         self.main.statusBar().showMessage('Ready')
 
 
