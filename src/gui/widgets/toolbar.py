@@ -1,5 +1,3 @@
-from PyQt4 import QtGui
-
 class Toolbar(object):
     def __init__(self, main_window):
         super(Toolbar, self).__init__()
