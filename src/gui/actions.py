@@ -1,3 +1,4 @@
+import random
 from PyQt4 import QtGui
 
 
@@ -25,13 +26,23 @@ class Actions(object):
         self.open_file.triggered.connect(self._open_file_dialog)
 
     def _open_file_dialog(self):
-        filename = QtGui.QFileDialog.getOpenFileName(self.main,
-                                                     'Open file', '/home')
+       # filename = QtGui.QFileDialog.getOpenFileName(self.main,
+       #                                              'Open file', '/home')
 
-        try:
-            f = open(filename, 'r')
-            data = f.read()
-            self.main.text_edit.setText(data)
-            self.main.statusbar.set_message("File loaded.")
-        except IOError:
-            self.main.statusbar.set_message("Couldn't read the file.")
+        randomNumbers = random.sample(range(0, 10), 10)
+        self.main.activity.canvas.ax.clear()
+        self.main.activity.canvas.ax.plot(randomNumbers)
+        self.main.activity.canvas.draw()
+
+        randomNumbers = random.sample(range(0, 100), 100)
+        self.main.activity.canvas2.ax.clear()
+        self.main.activity.canvas2.ax.plot(randomNumbers)
+        self.main.activity.canvas2.draw()
+
+       # try:
+       #     f = open(filename, 'r')
+       #     data = f.read()
+       #     self.main.text_edit.setText(data)
+       #     self.main.statusbar.set_message("File loaded.")
+       # except IOError:
+       #     self.main.statusbar.set_message("Couldn't read the file.")

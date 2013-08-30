@@ -3,6 +3,7 @@
 import sys
 from PyQt4 import QtGui
 from gui import actions
+from gui import activity
 from gui.widgets import toolbar
 from gui.widgets import statusbar
 
@@ -20,11 +21,12 @@ class MainWindow(QtGui.QMainWindow):
         # Add statusbar to main window
         self.statusbar = statusbar.Statusbar(self)
 
-        self.text_edit = QtGui.QTextEdit()
-        self.setCentralWidget(self.text_edit)
+        self.activity = activity.Activity(self)
+
+        self.setCentralWidget(self.activity)
 
         self.setWindowTitle('Stay Fit')
-        self.setGeometry(300, 300, 250, 150)
+        self.setGeometry(300, 300, 800, 600)
         self.show()
 
 
